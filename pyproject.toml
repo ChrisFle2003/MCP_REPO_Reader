@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "custom-mcp-repo-reader"
+version = "0.1.0"
+description = "Standalone read-only MCP repository reader for the Workspace"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[project.scripts]
+repo-mcp = "mcp_repo_reader.server:main"
+
+[tool.setuptools]
+packages = { find = { include = ["mcp_repo_reader*"] } }
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
